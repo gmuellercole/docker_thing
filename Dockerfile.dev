@@ -1,0 +1,15 @@
+# Specify the base image
+FROM node:alpine
+
+WORKDIR '/app'
+
+# install dependencies
+COPY package.json .
+RUN npm install
+
+# collect our content - this might be redundant if we use docker-compose bc we'll
+# probably be mapping the local content and so this isn't strictly necessary
+COPY . .
+
+# default startup command
+CMD ["npm", "run", "start"]
