@@ -10,3 +10,16 @@ script:
   # '-- --coverage' will cause it to exit when the tests finish
   #- docker run gmuellercole/docker_thing npm run test -- --coverage
   bash run_the_tests.sh
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "docker_thing"
+  env: "DockerThing-env"
+  bucket_name: "elasticbeanstalk-us-west-2-488851141018"
+  bucket_path: "docker_thing"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
