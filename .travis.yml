@@ -9,3 +9,4 @@ script:
   # by default 'npm run test' waits for input from user, adding
   # '-- --coverage' will cause it to exit when the tests finish
   #- docker run gmuellercole/docker_thing npm run test -- --coverage
+  bash run_the_tests.sh
